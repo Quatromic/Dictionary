@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Oswald&family=Lobster+Two&family=Protest+Riot&display=swap');
+body{
+    background:linear-gradient(#ebf4f5,#b5c6e0);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+#intro h1{
+    text-align: center;
+    font-family:"Lobster Two",sans-serif;
+    font-weight: lighter;
+    text-decoration: underline;
+}
+#intro{
+    margin-top: 65px;
+    text-align: center;
+}
+#intro p{
+    font-family: "Protest Riot",sans-serif;
+}
+#dictionary{
+    box-shadow: 10px 5px 5px 10px rgba(200,200,200,.5);
+    border-radius: 25px;
+    width:500px;
+    margin:0 auto;
+    height:350px;
+    position: relative;
+    top:210px;
+    padding-top:1px;
+}
+#input{
+    width:315px;
+    height:100px;
+    text-align: center;
+    margin:0 auto;
+    line-height: 40px;
+    position: relative;
+    top:20px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px 10px rgba(200,200,200,.5);
+}
+#input input{
+    background:transparent;
+    font-family:"Dancing Script",sans-serif;
+    text-align: center;
+    height:20px;
+    width:300px;
+    border:none;
+    font-size:19px;
+    border-bottom:1px solid black;
+}
+#input input:focus{
+    outline: none;
+}
+#input button{
+    border:none;
+    background:transparent;
+    font-family:"Protest Riot",sans-serif;
+    font-size:17px;
+    position: relative;
+}
+#input button::after{
+    content:'';
+    width:100%;
+    height:1px;
+    background-color: black;
+    position: absolute;
+    bottom:0;
+    left:0;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition:transform .5s ease-in-out;
+}
+#input button:hover{
+    cursor: pointer;
+}
+#input button:hover::after{
+    transform: scale(1);
+    transform-origin: bottom right;
+}
+
+#result{
+    background-color:beige;
+    width:500px;
+    margin:0 auto;
+    padding:10px;
+    border:1px solid black;
+    box-shadow: 5px 5px 5px 5px rgb(100,100,100);
+    opacity: 0;
+    transform: translate3d(0px,0px,0px);
+    left:115px;
+    position: relative;
+    bottom:230px;
+    border-radius:25px;
+    transition: all .5s ease-in-out;
+    z-index: -1;
+}
+#result.open{
+    transform: translate3d(-125px,0px,0px);
+    opacity: 1;
+    z-index: 1;
+}
+#result.open #dictionary{
+    filter: blur(5px);
+}
+#result h1{
+    font-family: "Protest Riot",sans-serif;
+    font-weight: lighter;   
+}
+#result #Phonetics,#speech{
+    margin-left:35px;
+    font-family:"Lobster Two",sans-serif;
+}
+#meaning{
+    text-align: center;
+    line-height: 30px;
+    font-family:Oswald,sans-serif;
+    font-weight: lighter;
+}
+#sound{
+    position: absolute;
+    top:100px;
+    right:50px;
+    background: transparent;
+    border:none;
+    border-radius: 10px;
+    font-size: 20px;
+}
+#close{
+    position: absolute;
+    right:10px;
+    background:transparent;
+    border:none;
+    font-size:20px;
+}
+#sound:hover,#close:hover{
+    cursor: pointer;
+}

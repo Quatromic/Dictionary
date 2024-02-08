@@ -19,7 +19,6 @@ const checker = async () => {
       result.style.visibility = "visible"
       result.classList.add("open")
       sound.style.display = "block"
-      sound.innerHTML = '<i class="fa-solid fa-volume-high"></i>'
       let first = [API[0]]
       for (let element of first){
         header.innerHTML = element.word
@@ -33,11 +32,16 @@ const checker = async () => {
           speech.innerHTML = `${element.meanings[0].partOfSpeech}, ${element.meanings[1].partOfSpeech}`
           meaning.innerHTML = `${element.meanings[0].definitions[0].definition} (${element.meanings[0].partOfSpeech}) <br/> ${element.meanings[1].definitions[0].definition} (${element.meanings[1].partOfSpeech})`
           const Sound = new Audio(element.phonetics[0].audio?element.phonetics[0].audio:"null")
-          sound.onclick = () => {
-            if(Sound)
-              Sound.play().then(() => console.log("Played audio")).catch(error => console.log("Error"))
-            else
-              console.log("Error with playing audio")
+          if(Sound !== null){
+            sound.innerHTML = `<i class="fa-solid fa-volume-high"></i>`
+            sound.onclick = () => {
+              Sound.play().then(() => {
+                console.log("Played audio")
+              }).catch(error => {
+                console.log("Error")
+                sound.innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`
+              })
+            }
           }
         }
       }

@@ -19,7 +19,7 @@ body{
     font-family: "Protest Riot",sans-serif;
 }
 #dictionary{
-    box-shadow: 10px 5px 5px 10px rgba(200,200,200,.5);
+    box-shadow: 10px 5px 5px 10px rgba(200,200,200,.9);
     border-radius: 25px;
     width:500px;
     margin:0 auto;
